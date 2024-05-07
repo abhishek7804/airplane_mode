@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SRR-{DD}-{MM}-{YYYY}-{#####}",
+ "creation": "2024-05-07 16:47:07.528883",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_m3wd",
+  "amended_from",
+  "shop_contract_details",
+  "tenant",
+  "from_date",
+  "to_date",
+  "column_break_fftp",
+  "tenure",
+  "payment_per_month",
+  "grand_total",
+  "paid",
+  "airport_shop"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_m3wd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shop Rent Receipt",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "shop_contract_details",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop Contract Details",
+   "options": "Shop Contract Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_fftp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1 Month",
+   "description": "Fill The Number of months for Contract",
+   "fieldname": "tenure",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Tenure",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop_contract_details.rent_amount",
+   "fieldname": "payment_per_month",
+   "fieldtype": "Currency",
+   "label": "Payment Per Month"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "paid",
+   "fieldtype": "Check",
+   "label": "Paid"
+  },
+  {
+   "fetch_from": "shop_contract_details.tenant",
+   "fieldname": "tenant",
+   "fieldtype": "Data",
+   "label": "Tenant"
+  },
+  {
+   "fetch_from": "shop_contract_details.airport_shop",
+   "fieldname": "airport_shop",
+   "fieldtype": "Link",
+   "label": "Airport Shop",
+   "options": "Airport Shop"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-07 17:18:52.858529",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Rent Receipt",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

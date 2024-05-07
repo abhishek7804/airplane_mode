@@ -2,13 +2,15 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "prompt",
- "creation": "2024-05-05 19:44:52.682757",
+ "creation": "2024-05-06 01:09:55.064093",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "headquarters",
   "founding_year",
-  "customer_care_number",
-  "headquarter"
+  "column_break_qdws",
+  "customer_care",
+  "website"
  ],
  "fields": [
   {
@@ -18,18 +20,27 @@
    "non_negative": 1
   },
   {
-   "fieldname": "customer_care_number",
+   "fieldname": "customer_care",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Customer Care Number",
+   "label": "Customer Care",
    "reqd": 1
   },
   {
-   "fieldname": "headquarter",
+   "fieldname": "headquarters",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Headquarter",
+   "label": "Headquarters",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qdws",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -39,13 +50,31 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2024-05-05 21:26:29.541776",
+ "modified": "2024-05-07 01:19:21.472817",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airline",
  "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1
+  },
   {
    "create": 1,
    "delete": 1,
@@ -54,9 +83,18 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Airport Authority Personnel",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1
   }
  ],
  "sort_field": "modified",

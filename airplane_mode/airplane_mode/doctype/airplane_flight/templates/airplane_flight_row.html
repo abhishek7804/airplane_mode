@@ -1,0 +1,33 @@
+<div class="custom-container">
+    <div>
+        <b style="font-size: 15px;">{{ doc.airplane }}</b><br>
+        <div>
+            {{ doc.source_airport_code }}->{{ doc.destination_airport_code }}<br>
+            {{ frappe.utils.formatdate(doc.date_of_departure, "dd MMM, yyyy") }} | {{ doc.time_of_departure }} | {{ frappe.utils.format_duration(doc.duration) }}
+        </div>
+    </div>
+	<br>
+    <a href="{{ doc.route }}" class="link">View Flight</a>
+</div>
+
+
+<style>
+	.custom-container {
+    /* Define your desired container st	`yles */
+    border: 1px solid #ccc;
+    padding: 16px !important;;
+    margin-bottom: 10px;
+	border-radius: 13px;
+	background: #ffffff;
+	font-size: 13px;
+}
+.link {
+	color: rgb(63, 146, 255);
+}
+.my-account-header {
+    font-size: 18px;
+}
+div#page-list {
+    background: #fafafa;
+}
+</style>

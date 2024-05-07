@@ -132,7 +132,11 @@ app_license = "mit"
 
 # Scheduled Tasks
 # ---------------
-
+scheduler_events = {
+    "daily" : [
+        "airplane_mode.airport_shop_management.doctype.shop_contract_details.shop_contract_details.reminder_for_payment"
+    ]
+}
 # scheduler_events = {
 # 	"all": [
 # 		"airplane_mode.tasks.all"

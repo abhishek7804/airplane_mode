@@ -1,24 +1,50 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{flight}-BLR-to-BOM-{###}",
- "creation": "2024-05-05 20:00:22.266757",
+ "autoname": "format:{flight}-{source_airport_code}-{destination_airport_code}-{###}",
+ "creation": "2024-05-06 01:23:50.156791",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "passenger",
-  "source_airport",
-  "destination_airport",
-  "source_airport_code",
-  "destination_airport_code",
   "status",
-  "column_break_pakr",
+  "column_break_hdwh",
   "flight",
+  "seat",
+  "section_break_uixx",
+  "amended_from",
+  "source_airport_code",
+  "entry_gate_number",
+  "column_break_zhju",
+  "destination_airport_code",
+  "exit_gate_number",
+  "section_break_ywmo",
+  "add_ons",
+  "section_break_iyxa",
+  "flight_price",
+  "column_break_bxse",
+  "total_amount",
+  "departure_details_section",
   "departure_date",
   "departure_time",
+  "column_break_bhsx",
   "duration_of_flight"
  ],
  "fields": [
+  {
+   "fieldname": "section_break_uixx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane Ticket",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
   {
    "fieldname": "passenger",
    "fieldtype": "Link",
@@ -28,30 +54,16 @@
    "reqd": 1
   },
   {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "label": "Source Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "label": "Destination Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Source Airport Code",
+   "label": "Source Airport Code ",
    "read_only": 1,
    "reqd": 1
   },
   {
-   "fetch_from": "destination_airport.code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -60,52 +72,122 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_pakr",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight",
-   "options": "Airplane",
+   "options": "Airplane Flight",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.date_of_departure",
    "fieldname": "departure_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Departure Date",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
    "label": "Departure Time",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
-   "label": "Duration of Flight",
+   "label": "Duration of Flight ",
    "reqd": 1
   },
   {
+   "fieldname": "column_break_zhju",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "departure_details_section",
+   "fieldtype": "Section Break",
+   "label": "Departure Details"
+  },
+  {
+   "fieldname": "column_break_bhsx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hdwh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Booked",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Booked\nChecked-In\nBoarder",
+   "options": "Booked\nChecked-In\nBoarded",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ywmo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add Ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "section_break_iyxa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bxse",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "flight.entry_gate_number",
+   "fieldname": "entry_gate_number",
+   "fieldtype": "Link",
+   "label": "Entry Gate Number",
+   "options": "Gate Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "flight.exit_gate_number",
+   "fieldname": "exit_gate_number",
+   "fieldtype": "Link",
+   "label": "Exit Gate Number",
+   "options": "Gate Number",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-05-05 22:12:04.781327",
+ "modified": "2024-05-07 12:12:14.125572",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -116,7 +198,30 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Travel Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
    "share": 1,
    "write": 1
   }

@@ -1,0 +1,22 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ title }}</h1><br>
+<h3>Flight Details</h3>
+<ul>
+    <li>Airline:{{ doc.airplane }}</li>
+    <li>{{ doc.source_airport_code }}->{{ doc.destination_airport_code }}</li>
+    <li>{{ frappe.utils.formatdate(doc.date_of_departure, "dd MMM, yyyy") }} | {{ doc.time_of_departure }}</li>
+    <li>Duration:{{ frappe.utils.format_duration(doc.duration) }}</li>
+</ul>
+<br>
+<button type="button" style="background: #1e90e4;color: #fff;border: 0px;border-radius: 8px;padding: 10px;font-weight: 800;width: 20%;font-size: 18px;line-height: 35px;" onclick="redirectToNewFlightForm('{{ title }}')">Book Flight</button>
+
+<script>
+    function redirectToNewFlightForm(title) {
+        window.location.href = "/book-flight-ticket/new?flight=" + encodeURIComponent(title);
+    }
+</script>
+{% endblock %}
+
+<!-- this is a sample default web page template --

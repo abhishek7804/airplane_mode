@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:{airline}-{###}",
- "creation": "2024-05-05 19:49:28.462087",
+ "creation": "2024-05-06 01:12:43.900089",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -22,7 +22,7 @@
    "fieldname": "airline",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Airline",
+   "label": "AirLine",
    "options": "Airline",
    "reqd": 1
   },
@@ -37,7 +37,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-05 19:53:09.369921",
+ "modified": "2024-05-07 01:20:16.598242",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane",
@@ -52,9 +52,39 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Fleet Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1
   }
  ],
  "sort_field": "modified",

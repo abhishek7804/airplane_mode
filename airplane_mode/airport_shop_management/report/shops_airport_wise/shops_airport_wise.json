@@ -1,0 +1,27 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-05-07 19:27:23.356942",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-05-07 19:28:13.172033",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shops Airport Wise",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select airportm, count(name) from `tabAirport Shop` group by airport",
+ "ref_doctype": "Airport Shop",
+ "report_name": "Shops Airport Wise",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

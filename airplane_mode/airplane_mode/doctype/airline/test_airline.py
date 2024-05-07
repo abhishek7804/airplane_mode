@@ -1,4 +1,4 @@
-# Copyright (c) 2024, Abhishek kumar and Contributors
+# Copyright (c) 2024, Abhishek Kumar and Contributors
 # See license.txt
 
 # import frappe
